@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xslt.2.xsl" version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="xslt.2.1.xsl" version="1.0"?>
+<html>
+    <body>
+        <div class="head">Заголовок</div>
+        <div class="block">
+            <b class="my-class"><i>Я</i> написал такой код:</b>
+            <div class="code">
+                <b>html</b> это <i style="color:red">пыщ</i>-пыщ.
+            </div>
+        </div>
+    </body>
+</html>

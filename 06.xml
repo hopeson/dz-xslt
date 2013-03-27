@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xslt.3.xsl" version="1.0"?>
+
+<page name="catalog">
+    <menu>
+        <item name="index"/>
+        <item name="catalog"/>
+        <item name="about"/>
+        <item name="help"/>
+    </menu>
+    <links>
+        <link name="about" href="/about/">О проекте</link>
+        <link name="catalog" href="/catalog/">Каталог</link>
+        <link name="help" href="/help/">Помощь</link>
+        <link name="index" href="/">Главная</link>
+        <link name="setup" href="/settings/">Настройки</link>
+    </links>
+    <content>
+        <list>
+            <item><p>Тут какой-то <b>текст</b></p></item>
+            <item><p>И еще <b>текста</b> куча</p></item>
+            <item><p>И еще что-то написано</p></item>
+        </list>
+    </content>
+</page>
