@@ -38,7 +38,7 @@
     </xsl:template>
 
     <xsl:template name="max-min">
-        <ul><xsl:apply-templates select="(//item/text()[not(. &lt; //item/text())])[1]/text() | (//item/text()[not(. &gt; //item/text())])[1]/text()"/></ul>
+        <ul><xsl:apply-templates select="//item[last()][not (. &lt; //item)]/text()|//item[1][not (. &gt; //item)]/text()"/></ul>
     </xsl:template>
 
     <xsl:template match="item">

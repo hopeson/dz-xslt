@@ -34,20 +34,21 @@
             <xsl:attribute name="class">b-menu</xsl:attribute>
             <xsl:apply-templates select="@*|node()"/>
         </ul>
+        <xsl:call-template name="content"/>
     </xsl:template>
 
-    <xsl:template name="articles" match="//list/item">
+
+    <xsl:template name="content" match="//content">
         <div>
-            <xsl:attribute name="class">b-section</xsl:attribute>
-            <xsl:copy-of select="@*"/>
-            <xsl:apply-templates/>
+            <xsl:attribute name="class">b-page</xsl:attribute>
+            <xsl:call-template name="articles"/>
         </div>
     </xsl:template>
 
-    <xsl:template match="//list">
+    <xsl:template name="articles" match="//list">
         <div>
-            <xsl:attribute name="class">b-page</xsl:attribute>
-            <xsl:apply-templates select="@*|node()"/>
+            <xsl:attribute name="class">b-section</xsl:attribute>
+            <xsl:copy-of select="//list/item/*"/>
         </div>
     </xsl:template>
 
@@ -60,14 +61,14 @@
 
     <xsl:template name="links">
         <a>
-            <xsl:attribute name="href">b-page
-                <xsl:value-of select="//link[@name = //page/@name]/"/>
+            <xsl:attribute name="href">
+                <xsl:value-of select="//link[@name = //page/@name]/preceding-sibling::*[1]/@href"/>
             </xsl:attribute>
             Предыдущая
         </a>
         <a>
-            <xsl:attribute name="href">b-page
-
+            <xsl:attribute name="href">
+                <xsl:value-of select="//link[@name = //page/@name]/following-sibling::*[1]/@href"/>
             </xsl:attribute>
             Следующая
         </a>
@@ -76,7 +77,7 @@
     <xsl:template match="/">
         <html>
             <body>
-            <xsl:apply-templates select="@*|node()"/>
+                <xsl:apply-templates select="//menu|//links"/>
             </body>
         </html>
     </xsl:template>

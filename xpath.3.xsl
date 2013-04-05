@@ -36,7 +36,9 @@
     </xsl:template>
 
     <!--<xsl:template name="equal">-->
-        <!--<ul><xsl:apply-templates select="/"/></ul>-->
+        <!--<ul>-->
+            <!--<xsl:apply-templates select="//*[contains(//good, substring(//bad, 1, 1)) or contains(//good, substring(//bad, 3, 1)) or contains(//good, substring(//bad, 5, 1))]"/>-->
+        <!--</ul>-->
     <!--</xsl:template>-->
 
     <xsl:template name="not-bad">

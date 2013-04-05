@@ -33,27 +33,27 @@
 
 
     <xsl:template name="phone">
-        <ul><xsl:apply-templates select="//phone/.."/></ul>
+        <ul><xsl:apply-templates select="//phone/preceding-sibling::login"/></ul>
     </xsl:template>
 
     <xsl:template name="phone-mob">
-        <ul><xsl:apply-templates select="/persons/person/phone[@type = 'mobile']/.."/></ul>
+        <ul><xsl:apply-templates select="/persons/person/phone[@type = 'mobile']/preceding-sibling::login"/></ul>
     </xsl:template>
 
     <xsl:template name="phone-mob-work">
-        <ul><xsl:apply-templates select="/persons/person[child::phone[@type = 'work'] and child::phone[@type = 'mobile']]"/></ul>
+        <ul><xsl:apply-templates select="/persons/person[child::phone[@type = 'work'] and child::phone[@type = 'mobile']]/login"/></ul>
     </xsl:template>
 
     <xsl:template name="email-login">
-        <ul><xsl:apply-templates select="/persons/person/email[starts-with(., preceding-sibling::login[text()])]/.."/></ul>
+        <ul><xsl:apply-templates select="/persons/person/email[starts-with(., preceding-sibling::login[text()])]/preceding-sibling::login"/></ul>
     </xsl:template>
 
     <xsl:template name="group-html">
-        <ul><xsl:apply-templates select="/persons/person/group[text() = 'html']/.."/></ul>
+        <ul><xsl:apply-templates select="/persons/person/group[text() = 'html']/preceding-sibling::login"/></ul>
     </xsl:template>
 
     <xsl:template name="login-length">
-        <ul><xsl:apply-templates select="/persons/person/login[string-length(normalize-space(.)) &gt; 3]/.."/></ul>
+        <ul><xsl:apply-templates select="/persons/person/login[string-length(normalize-space(.)) &gt; 3]"/></ul>
     </xsl:template>
 
     <xsl:template name="choose-contact">
@@ -64,7 +64,7 @@
         <ul><xsl:apply-templates select="(/persons/person/login|/persons/person/*[self::email or self::phone[@type = 'work'] or self::phone[@type = 'mobile']][last()])"/></ul>
     </xsl:template>
 
-    <xsl:template match="/persons/person/child::*">
+    <xsl:template match="/persons/person/login">
         <li><xsl:value-of select="text()"/></li>
     </xsl:template>
 
